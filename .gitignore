@@ -1,0 +1,12 @@
+.idea
+/djorgchart/__pycache__/__init__.cpython-32.pyc
+/djorgchart/__pycache__/settings.cpython-32.pyc
+/djorgchart/__pycache__/urls.cpython-32.pyc
+/djorgchart/__pycache__/wsgi.cpython-32.pyc
+/orgchart/__pycache__/__init__.cpython-32.pyc
+/orgchart/__pycache__/models.cpython-32.pyc
+/orgchart/__pycache__/views.cpython-32.pyc
+/templates/orgchart/backup/index0.html
+/templates/orgchart/backup/index1.html
+/templates/orgchart/backup/index3.html
+/orgchart-sb
