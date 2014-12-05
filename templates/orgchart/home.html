@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Структура данных</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/media/css/jquery.orgchart.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+<a href="{% url "chart_new" %}">Новая схема</a>
+
+<table>
+  <thead>
+	<tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>*</th>
+	</tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+	<tr>
+        <td>{{ i.id }}</td>
+        <td><a href="{% url "chart_edit" i.id %}">{{ i.Title }}</a></td>
+        <td><a href="{% url "chart_delete" i.id %}">Удалить</a></td>
+	</tr>
+  {% endfor %}
+  </tbody>
+      <tfoot>
+	<tr>
+        <td>Итого:</td>
+        <td>{{ counter }}</td>
+        <td> * </td>
+	</tr>
+  </tfoot>
+</table>
+
+
+
+
+
+</body>
+</html>

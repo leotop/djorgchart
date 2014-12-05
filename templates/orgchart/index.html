@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Структура данных</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/media/css/jquery.orgchart.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<a href="{% url "chart_home" %}">Главная</a>
+
+
+<form method="post" action="../">
+    {% csrf_token %}
+    <input id="id_title" maxlength="250" name="title" type="text" value="{{ data.Title }}" />
+    <input type="button" onclick="Post_Data()" value="сохранить">
+</form>
+
+
+<div id="orgChartContainer">
+    <div id="orgChart"></div>
+</div>
+
+
+<script type="text/javascript" src="/media/js/jquery.orgchart.js"></script>
+
+    <script type="text/javascript">
+    var testData = {% autoescape off %}{{ data.Content }}{% endautoescape %};
+        $(function(){
+        org_chart = $('#orgChart').orgChart({
+            data: testData,
+            showControls: true,
+            allowEdit: true,
+        });
+    });
+
+        function Post_Data() {
+        $.post(".", { title: $('input[name=title]').val(),
+                    content: JSON.stringify(org_chart.getData()),
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                },
+
+        function(data){
+        //alert("Data Loaded: " + data);
+  });
+    }
+    </script>
+
+
+
+</body>
+</html>
